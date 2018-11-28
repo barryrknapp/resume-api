@@ -1,0 +1,42 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*~
+bin/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### Misc ###
+*.swp
+*.swo
+*.swn
+*.log
+/.metadata/
+databasechangelog.csv
+cubbyhole.properties
+cubbyhole
+spring.cubbyhole
+server.crt
+server.key
+CSR.csr
+*.pem
+cleanupProxy.sh
