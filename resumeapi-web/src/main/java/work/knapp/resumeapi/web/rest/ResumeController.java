@@ -30,8 +30,9 @@ public class ResumeController {
 
 	private static final Logger LOGGER = LogManager.getLogger();
 
+	//visible for test
 	@Autowired
-	private ResumeService resumeService;
+	protected ResumeService resumeService;
 
 	@ApiOperation(value = "get resume")
 	@GetMapping("/{companyName}")

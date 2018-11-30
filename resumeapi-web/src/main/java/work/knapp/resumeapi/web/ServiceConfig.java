@@ -5,6 +5,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import work.knapp.resumeapi.dao.ResumeDao;
+import work.knapp.resumeapi.dao.ResumeDaoImpl;
 import work.knapp.resumeapi.service.ResumeService;
 import work.knapp.resumeapi.service.ResumeServiceImpl;
 
@@ -18,10 +20,17 @@ public class ServiceConfig {
 	private static Logger logger = LogManager.getLogger();
 
 	@Bean
-	public ResumeService resumeService() {
+	public ResumeDao resumeDao() {
+
+		logger.info("Initializing bean: ResumeDaoImpl");
+		return new ResumeDaoImpl();
+	}
+	
+	@Bean
+	public ResumeService resumeService(ResumeDao resumeDao) {
 
 		logger.info("Initializing bean: ResumeServiceImpl");
-		return new ResumeServiceImpl();
+		return new ResumeServiceImpl(resumeDao);
 	}
 
 }

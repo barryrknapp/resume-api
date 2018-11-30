@@ -1,13 +1,13 @@
 FROM openjdk:8u171-jre
 
 
-LABEL ostk.app.name CustomerResourceService
-LABEL ostk.app.type webservice
+LABEL work.knapp.app.name resumeapi
+LABEL work.knapp.app.type webservice
 
 ENV TZ=America/Denver
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY ./CustomerResourceService-web/target/CustomerResourceService-*.jar /app/run.jar
+COPY ./resumeapi-web/target/resumeapi-*.jar /app/run.jar
 
 WORKDIR /app
 
