@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class ResumeController {
 	@Autowired
 	protected ResumeService resumeService;
 
+	
 	@ApiOperation(value = "get resume")
 	@GetMapping("/{companyName}")
 	public ResponseEntity<Resume> get(
@@ -43,10 +45,11 @@ public class ResumeController {
 		
 		Optional<Resume> resume = resumeService.getResume(companyName);
 	
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Allow-Origin", "*");
 		
-		
-		return resume.map(s -> new ResponseEntity<Resume>(s, HttpStatus.OK))
-				.orElse(new ResponseEntity<Resume>(HttpStatus.NOT_FOUND));
+		return resume.map(s -> new ResponseEntity<Resume>(s, headers, HttpStatus.OK))
+				.orElse(new ResponseEntity<Resume>(headers, HttpStatus.NOT_FOUND));
 	}
 
 }
