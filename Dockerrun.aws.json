@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "barryknapp/work.knapp.public:0.0.1",
+    "Name": "barryknapp/work.knapp.public:0.0.3",
     "Update": "true"
   },
   "Ports": [
